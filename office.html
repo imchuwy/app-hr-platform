@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Atlas HR | London Office</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">Atlas HR</span>
+          <span class="brand-subtitle">London office</span>
+        </div>
+        <nav class="nav">
+          <a class="nav-pill" href="index.html">Global view</a>
+          <button class="nav-pill is-active">Office details</button>
+          <button class="nav-pill">Org chart</button>
+          <button class="nav-pill">Resources</button>
+        </nav>
+      </header>
+
+      <main class="office-page">
+        <section class="office-summary">
+          <div>
+            <p class="eyebrow">Office status</p>
+            <h1>London</h1>
+            <p class="muted">Regional HQ · 2nd floor, Miro Tower</p>
+          </div>
+          <div class="office-stats">
+            <div>
+              <p class="label">Active today</p>
+              <p class="value">110</p>
+            </div>
+            <div>
+              <p class="label">On leave</p>
+              <p class="value">8</p>
+            </div>
+            <div>
+              <p class="label">Remote</p>
+              <p class="value">12</p>
+            </div>
+            <div>
+              <p class="label">Visitors</p>
+              <p class="value">4</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="office-grid">
+          <div class="panel">
+            <div class="panel-header">
+              <h2>Availability board</h2>
+              <p class="muted">Who is on-site right now.</p>
+            </div>
+            <div class="people-list" id="peopleList"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h2>Org chart highlights</h2>
+              <p class="muted">Key leadership and teams.</p>
+            </div>
+            <div class="org-chart">
+              <div class="org-node">
+                <h3>Harriet Lewis</h3>
+                <p>Regional Director</p>
+              </div>
+              <div class="org-row">
+                <div class="org-node">
+                  <h3>Samantha Rios</h3>
+                  <p>Engineering Lead</p>
+                </div>
+                <div class="org-node">
+                  <h3>Marc Dubois</h3>
+                  <p>Finance Lead</p>
+                </div>
+              </div>
+              <div class="org-row">
+                <div class="org-node">
+                  <h3>Alana Wyatt</h3>
+                  <p>People Ops Lead</p>
+                </div>
+                <div class="org-node">
+                  <h3>Jules Schneider</h3>
+                  <p>Client Success Lead</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel wide">
+            <div class="panel-header">
+              <h2>Today's status</h2>
+              <p class="muted">Live overview of team distribution.</p>
+            </div>
+            <div class="status-grid">
+              <div class="status-card">
+                <p class="label">Focus rooms</p>
+                <p class="value">6 in use</p>
+              </div>
+              <div class="status-card">
+                <p class="label">Client meetings</p>
+                <p class="value">9 scheduled</p>
+              </div>
+              <div class="status-card">
+                <p class="label">Open desks</p>
+                <p class="value">24 available</p>
+              </div>
+              <div class="status-card">
+                <p class="label">Support tickets</p>
+                <p class="value">3 in queue</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="office.js"></script>
+  </body>
+</html>
