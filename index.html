@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Atlas HR | Global Workforce</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">Atlas HR</span>
+          <span class="brand-subtitle">Enterprise resource management</span>
+        </div>
+        <nav class="nav">
+          <button class="nav-pill is-active">Global view</button>
+          <button class="nav-pill">People</button>
+          <button class="nav-pill">Requests</button>
+          <button class="nav-pill">Reports</button>
+        </nav>
+      </header>
+
+      <main class="content">
+        <section class="globe-panel">
+          <div class="globe-header">
+            <div>
+              <p class="eyebrow">Live coverage</p>
+              <h1>Global office footprint</h1>
+            </div>
+            <div class="legend">
+              <span><span class="dot dot-active"></span>Active</span>
+              <span><span class="dot dot-focus"></span>Selected</span>
+            </div>
+          </div>
+
+          <div class="globe-stage">
+            <div class="globe" id="globe">
+              <div class="continent continent-europe"></div>
+              <div class="continent continent-africa"></div>
+              <div class="continent continent-americas"></div>
+              <button class="office-marker" data-office="london" style="--x: 54%; --y: 34%;">
+                <span></span>
+              </button>
+              <button class="office-marker" data-office="newyork" style="--x: 30%; --y: 38%;">
+                <span></span>
+              </button>
+              <button class="office-marker" data-office="singapore" style="--x: 72%; --y: 58%;">
+                <span></span>
+              </button>
+              <button class="office-marker" data-office="sydney" style="--x: 80%; --y: 74%;">
+                <span></span>
+              </button>
+            </div>
+
+            <div class="globe-popup" id="globePopup">
+              <div class="popup-header">
+                <div>
+                  <p class="eyebrow">Office snapshot</p>
+                  <h2 id="officeName">London</h2>
+                </div>
+                <a class="cta" id="officeLink" href="office.html">View office</a>
+              </div>
+              <div class="popup-grid">
+                <div>
+                  <p class="label">Local time</p>
+                  <p class="value" id="officeTime">14:32</p>
+                </div>
+                <div>
+                  <p class="label">Personnel</p>
+                  <p class="value" id="officePersonnel">120</p>
+                </div>
+                <div>
+                  <p class="label">Availability</p>
+                  <p class="value" id="officeAvailability">110 active</p>
+                </div>
+                <div>
+                  <p class="label">Next holiday</p>
+                  <p class="value" id="officeHoliday">Bank Holiday · 5 May</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="profile-panel">
+          <div class="profile-card">
+            <div class="profile-header">
+              <div>
+                <p class="eyebrow">Profile</p>
+                <h2>Oscar Chu</h2>
+                <p class="muted">Senior People Partner · London</p>
+              </div>
+              <div class="avatar">OC</div>
+            </div>
+            <div class="metric-list">
+              <div class="metric">
+                <p class="label">Annual leave taken</p>
+                <p class="value">18 days</p>
+              </div>
+              <div class="metric">
+                <p class="label">WFH days used</p>
+                <p class="value">5 days</p>
+              </div>
+              <div class="metric">
+                <p class="label">Sick leave taken</p>
+                <p class="value">10 days</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="request-card">
+            <div>
+              <p class="eyebrow">Requests</p>
+              <h3>Make a request</h3>
+              <p class="muted">Submit leave, equipment, or travel approvals directly to HR.</p>
+            </div>
+            <div class="request-actions">
+              <button class="button button-primary">Request holiday</button>
+              <button class="button button-secondary">Request WFH</button>
+              <button class="button button-secondary">Report absence</button>
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
