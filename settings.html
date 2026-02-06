@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fun-alto HR | Settings</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">Fun-alto HR</span>
+          <span class="brand-subtitle">Settings</span>
+        </div>
+        <nav class="nav">
+          <a class="nav-pill" href="global.html">Global view</a>
+          <a class="nav-pill" href="office.html">Office</a>
+          <a class="nav-pill" href="people.html">People</a>
+          <a class="nav-pill" href="approvals.html">Approvals</a>
+          <a class="nav-pill nav-icon is-active" href="settings.html" aria-label="Settings">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                fill="currentColor"
+                d="M12 8.75a3.25 3.25 0 1 0 0 6.5a3.25 3.25 0 0 0 0-6.5zm9.25 3.25l-1.96-.32a7.4 7.4 0 0 0-.62-1.5l1.17-1.6a.75.75 0 0 0-.08-.98l-1.66-1.66a.75.75 0 0 0-.98-.08l-1.6 1.17c-.48-.26-.98-.48-1.5-.62l-.32-1.96a.75.75 0 0 0-.74-.62h-2.35a.75.75 0 0 0-.74.62l-.32 1.96c-.52.14-1.02.36-1.5.62l-1.6-1.17a.75.75 0 0 0-.98.08L4.16 7.22a.75.75 0 0 0-.08.98l1.17 1.6c-.26.48-.48.98-.62 1.5l-1.96.32a.75.75 0 0 0-.62.74v2.35c0 .37.27.69.62.74l1.96.32c.14.52.36 1.02.62 1.5l-1.17 1.6a.75.75 0 0 0 .08.98l1.66 1.66c.26.26.66.3.98.08l1.6-1.17c.48.26.98.48 1.5.62l.32 1.96c.05.35.37.62.74.62h2.35c.37 0 .69-.27.74-.62l.32-1.96c.52-.14 1.02-.36 1.5-.62l1.6 1.17c.32.22.72.18.98-.08l1.66-1.66a.75.75 0 0 0 .08-.98l-1.17-1.6c.26-.48.48-.98.62-1.5l1.96-.32a.75.75 0 0 0 .62-.74v-2.35a.75.75 0 0 0-.62-.74z"
+              />
+            </svg>
+          </a>
+        </nav>
+      </header>
+
+      <main class="settings-page">
+        <section class="panel">
+          <div class="panel-header">
+            <h1>Settings</h1>
+            <p class="muted">Personalize your Fun-alto HR experience.</p>
+          </div>
+          <div class="settings-grid">
+            <div class="settings-block">
+              <h2>Profile</h2>
+              <p class="muted">Manage your personal details and office defaults.</p>
+              <div class="field">
+                <span class="label">Display name</span>
+                <input type="text" value="Oscar Chu" />
+              </div>
+              <div class="field">
+                <span class="label">Default office</span>
+                <select>
+                  <option>London</option>
+                  <option>New York</option>
+                  <option>Singapore</option>
+                  <option>Sydney</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="settings-block">
+              <h2>Notifications</h2>
+              <p class="muted">Choose how we keep you updated.</p>
+              <label class="settings-toggle">
+                <input type="checkbox" checked />
+                <span>Email summaries</span>
+              </label>
+              <label class="settings-toggle">
+                <input type="checkbox" checked />
+                <span>Approval alerts</span>
+              </label>
+              <label class="settings-toggle">
+                <input type="checkbox" />
+                <span>Holiday reminders</span>
+              </label>
+            </div>
+
+            <div class="settings-block">
+              <h2>Work preferences</h2>
+              <p class="muted">Set how you like to work with the team.</p>
+              <label class="settings-toggle">
+                <input type="checkbox" checked />
+                <span>Show availability status</span>
+              </label>
+              <label class="settings-toggle">
+                <input type="checkbox" />
+                <span>Auto-sync calendar focus blocks</span>
+              </label>
+              <label class="settings-toggle">
+                <input type="checkbox" checked />
+                <span>Share time zone with teammates</span>
+              </label>
+            </div>
+
+            <div class="settings-block">
+              <h2>Security</h2>
+              <p class="muted">Strengthen how you access HR tools.</p>
+              <label class="settings-toggle">
+                <input type="checkbox" checked />
+                <span>Two-factor authentication</span>
+              </label>
+              <label class="settings-toggle">
+                <input type="checkbox" />
+                <span>Device login alerts</span>
+              </label>
+              <button class="button button-primary" type="button">Save changes</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

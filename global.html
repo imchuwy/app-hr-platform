@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fun-alto HR | Global Workforce</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="home">
+    <div class="page">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark"><span class="brand-mark-main">Fun-alto</span><span class="brand-mark-sub">HR</span></span>
+          <span class="brand-subtitle">Your friendly AI HR</span>
+        </div>
+        <nav class="nav">
+          <a class="nav-pill is-active" href="global.html">Global view</a>
+  <a class="nav-pill" href="office.html">Office</a>
+  <a class="nav-pill" href="people.html">People</a>
+  <a class="nav-pill" href="approvals.html">Approvals</a>
+  <a class="nav-pill nav-icon" href="settings.html" aria-label="Settings">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path
+      fill="currentColor"
+      d="M12 8.75a3.25 3.25 0 1 0 0 6.5a3.25 3.25 0 0 0 0-6.5zm9.25 3.25l-1.96-.32a7.4 7.4 0 0 0-.62-1.5l1.17-1.6a.75.75 0 0 0-.08-.98l-1.66-1.66a.75.75 0 0 0-.98-.08l-1.6 1.17c-.48-.26-.98-.48-1.5-.62l-.32-1.96a.75.75 0 0 0-.74-.62h-2.35a.75.75 0 0 0-.74.62l-.32 1.96c-.52.14-1.02.36-1.5.62l-1.6-1.17a.75.75 0 0 0-.98.08L4.16 7.22a.75.75 0 0 0-.08.98l1.17 1.6c-.26.48-.48.98-.62 1.5l-1.96.32a.75.75 0 0 0-.62.74v2.35c0 .37.27.69.62.74l1.96.32c.14.52.36 1.02.62 1.5l-1.17 1.6a.75.75 0 0 0 .08.98l1.66 1.66c.26.26.66.3.98.08l1.6-1.17c.48.26.98.48 1.5.62l.32 1.96c.05.35.37.62.74.62h2.35c.37 0 .69-.27.74-.62l.32-1.96c.52-.14 1.02-.36 1.5-.62l1.6 1.17c.32.22.72.18.98-.08l1.66-1.66a.75.75 0 0 0 .08-.98l-1.17-1.6c.26-.48.48-.98.62-1.5l1.96-.32a.75.75 0 0 0 .62-.74v-2.35a.75.75 0 0 0-.62-.74z"
+    />
+  </svg>
+</a></nav>
+      </header>
+
+      <main class="content">
+        <section class="globe-panel">
+          <div class="globe-header">
+            <div>
+              <p class="eyebrow">Live coverage</p>
+              <h1>Global office footprint</h1>
+            </div>
+            <div class="legend">
+              <span><span class="dot dot-active"></span>Active</span>
+              <span><span class="dot dot-focus"></span>Selected</span>
+            </div>
+          </div>
+
+          <div class="globe-stage">
+            <div class="globe" id="globe" aria-label="Interactive globe">
+              <canvas id="globeCanvas" width="360" height="360" aria-hidden="true"></canvas>
+              <div class="globe-overlay" id="globeOverlay">
+                <button class="office-marker" data-office="london" data-lat="51.5074" data-lon="-0.1278">
+                  <span></span>
+                </button>
+                <button class="office-marker" data-office="bulgaria" data-lat="42.6977" data-lon="23.3219">
+                  <span></span>
+                </button>
+                <button class="office-marker" data-office="cyprus" data-lat="35.1856" data-lon="33.3823">
+                  <span></span>
+                </button>
+                <button class="office-marker" data-office="dubai" data-lat="25.2048" data-lon="55.2708">
+                  <span></span>
+                </button>
+                <button class="office-marker" data-office="singapore" data-lat="1.3521" data-lon="103.8198">
+                  <span></span>
+                </button>
+                <button class="office-marker" data-office="sydney" data-lat="-33.8688" data-lon="151.2093">
+                  <span></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="globe-popup" id="globePopup">
+              <div class="popup-header">
+                <div>
+                  <p class="eyebrow">Office snapshot</p>
+                  <h2 id="officeName">London</h2>
+                </div>
+                <a class="cta" id="officeLink" href="office.html">View office</a>
+              </div>
+              <div class="popup-grid">
+                <div>
+                  <p class="label">Local time</p>
+                  <p class="value" id="officeTime">Tue 14:32</p>
+                </div>
+                <div>
+                  <p class="label">Personnel</p>
+                  <p class="value" id="officePersonnel">120</p>
+                </div>
+                <div>
+                  <p class="label">Availability</p>
+                  <p class="value" id="officeAvailability">110 active</p>
+                </div>
+                <div>
+                  <p class="label">Next holiday</p>
+                  <p class="value" id="officeHoliday">Bank Holiday - 5 May</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="profile-panel">
+          <div class="profile-card">
+            <div class="profile-header">
+              <div>
+                <p class="eyebrow">Profile</p>
+                <h2>Oscar Chu</h2>
+                <p class="muted">Chief Vibe Officer · London</p>
+              </div>
+              <div class="avatar">OC</div>
+            </div>
+            <div class="metric-list">
+              <div class="metric">
+                <p class="label">Annual leave taken</p>
+                <p class="value">18 days</p>
+              </div>
+              <div class="metric">
+                <p class="label">WFH days used</p>
+                <p class="value">5 days</p>
+              </div>
+              <div class="metric">
+                <p class="label">Sick leave taken</p>
+                <p class="value">10 days</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="request-card">
+            <div>
+              <p class="eyebrow">Requests</p>
+              <h3>Make a request</h3>
+              <p class="muted">Submit leave, equipment, or travel approvals directly to HR.</p>
+            </div>
+            <div class="request-actions">
+              <button class="button button-primary" id="requestButton" type="button">Make a request</button>
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <div class="modal is-hidden" id="requestModal" role="dialog" aria-modal="true" aria-labelledby="requestTitle">
+      <div class="modal-backdrop" data-modal-close></div>
+      <div class="modal-card">
+        <div class="modal-header">
+          <h2 id="requestTitle">Make a request</h2>
+          <button class="modal-close" type="button" data-modal-close aria-label="Close request form">x</button>
+        </div>
+        <form class="modal-form" id="requestForm">
+          <label class="field">
+            <span class="label">Request type</span>
+            <select name="requestType" required>
+              <option value="holiday">Holiday</option>
+              <option value="wfh">WFH</option>
+              <option value="sick-leave">Sick leave</option>
+            </select>
+          </label>
+          <div class="field-row">
+            <label class="field">
+              <span class="label">Start date</span>
+              <input type="date" name="startDate" required />
+            </label>
+            <label class="field">
+              <span class="label">End date</span>
+              <input type="date" name="endDate" required />
+            </label>
+          </div>
+          <label class="field">
+            <span class="label">Comments</span>
+            <textarea name="comments" rows="4" placeholder="Add context or notes"></textarea>
+          </label>
+          <div class="modal-actions">
+            <button class="button button-secondary" type="button" data-modal-close>Cancel</button>
+            <button class="button button-primary" type="submit">Submit request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+

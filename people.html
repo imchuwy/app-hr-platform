@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fun-alto HR | People</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="people">
+    <div class="page">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark"><span class="brand-mark-main">Fun-alto</span><span class="brand-mark-sub">HR</span></span>
+          <span class="brand-subtitle">Your friendly AI HR</span>
+        </div>
+        <nav class="nav">
+          <a class="nav-pill" href="global.html">Global view</a>
+  <a class="nav-pill" href="office.html">Office</a>
+  <a class="nav-pill is-active" href="people.html">People</a>
+  <a class="nav-pill" href="approvals.html">Approvals</a>
+  <a class="nav-pill nav-icon" href="settings.html" aria-label="Settings">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path
+      fill="currentColor"
+      d="M12 8.75a3.25 3.25 0 1 0 0 6.5a3.25 3.25 0 0 0 0-6.5zm9.25 3.25l-1.96-.32a7.4 7.4 0 0 0-.62-1.5l1.17-1.6a.75.75 0 0 0-.08-.98l-1.66-1.66a.75.75 0 0 0-.98-.08l-1.6 1.17c-.48-.26-.98-.48-1.5-.62l-.32-1.96a.75.75 0 0 0-.74-.62h-2.35a.75.75 0 0 0-.74.62l-.32 1.96c-.52.14-1.02.36-1.5.62l-1.6-1.17a.75.75 0 0 0-.98.08L4.16 7.22a.75.75 0 0 0-.08.98l1.17 1.6c-.26.48-.48.98-.62 1.5l-1.96.32a.75.75 0 0 0-.62.74v2.35c0 .37.27.69.62.74l1.96.32c.14.52.36 1.02.62 1.5l-1.17 1.6a.75.75 0 0 0 .08.98l1.66 1.66c.26.26.66.3.98.08l1.6-1.17c.48.26.98.48 1.5.62l.32 1.96c.05.35.37.62.74.62h2.35c.37 0 .69-.27.74-.62l.32-1.96c.52-.14 1.02-.36 1.5-.62l1.6 1.17c.32.22.72.18.98-.08l1.66-1.66a.75.75 0 0 0 .08-.98l-1.17-1.6c.26-.48.48-.98.62-1.5l1.96-.32a.75.75 0 0 0 .62-.74v-2.35a.75.75 0 0 0-.62-.74z"
+    />
+  </svg>
+</a></nav>
+      </header>
+
+      <main class="content people-page">
+        <section class="panel people-panel">
+          <div class="panel-header">
+            <p class="eyebrow">People directory</p>
+            <h1>Employees</h1>
+            <p class="muted">Click a column header to order the list.</p>
+          </div>
+
+          <div class="table-wrap">
+            <table class="people-table" aria-label="Employee directory">
+              <thead>
+                <tr>
+                  <th aria-sort="ascending">
+                    <button class="sort-button" type="button" data-sort-key="name" data-direction="asc">
+                      Name
+                      <span class="sort-indicator" aria-hidden="true"></span>
+                    </button>
+                  </th>
+                  <th aria-sort="none">
+                    <button class="sort-button" type="button" data-sort-key="title">
+                      Job title
+                      <span class="sort-indicator" aria-hidden="true"></span>
+                    </button>
+                  </th>
+                  <th aria-sort="none">
+                    <button class="sort-button" type="button" data-sort-key="location">
+                      Location
+                      <span class="sort-indicator" aria-hidden="true"></span>
+                    </button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="peopleTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="people.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
