@@ -2,11 +2,9 @@
 
 Explore a sample workforce across an interactive globe. Drag to rotate the globe, or choose an office from the list to open its staffing summary. The app also includes a sortable people directory, an expandable org chart and a sample leave request form.
 
+[Open HR Platform](https://imchuwy.github.io/app-hr-platform/)
+
 ![Global offices in the light theme](docs/screenshots/global-offices.jpg)
-
-## Appearance
-
-The Shore Wash portfolio identity uses the horizontal banner on light desktop headers, Open Water on compact light headers, and Nightfall A on dark headers. Choose System, Light or Dark in Settings.
 
 <details>
 <summary>Mobile view in the dark theme</summary>
@@ -19,4 +17,4 @@ The Shore Wash portfolio identity uses the horizontal banner on light desktop he
 
 Serve the repository root with a static web server, for example **python -m http.server 8000**, and open <http://localhost:8000>. The app uses fictional personnel and sample office snapshots. Completing the sample form displays a local confirmation.
 
-The [design kit](https://github.com/imchuwy/ux-template) supplies the Shore Wash artwork and fonts. Font licenses are in [assets/fonts/licenses](assets/fonts/licenses). Globe coastlines use [Natural Earth data](https://www.naturalearthdata.com/about/terms-of-use/).
+Globe coastlines use [Natural Earth data](https://www.naturalearthdata.com/about/terms-of-use/).
