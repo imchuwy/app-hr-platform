@@ -1,5 +1,5 @@
 const people = [
-  { name: "Oscar Chu", title: "Chief Vibe Officer", location: "London" },
+  { name: "Alex Morgan", title: "Chief Vibe Officer", location: "London" },
   { name: "Ava Patel", title: "Schedule Wrangler", location: "London" },
   { name: "Mateo Alvarez", title: "Spreadsheet Sorcerer", location: "Austin" },
   { name: "Yuki Tanaka", title: "Talent Magnet", location: "Tokyo" },

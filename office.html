@@ -3,19 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fun-alto HR | London Office</title>
+    <title>OC AI Workforce | Office</title>
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <script src="styles/oc-ai-theme.js"></script>
+    <link rel="stylesheet" href="styles/oc-ai.css" />
     <link rel="stylesheet" href="styles.css" />
+    <script defer src="scripts/oc-ai-controls.js"></script>
   </head>
-  <body>
+  <body class="oc-app">
+    <a class="oc-skip oc-button" href="#main">Skip to content</a>
     <div class="page">
       <header class="topbar">
-        <div class="brand">
-          <span class="brand-mark"><span class="brand-mark-main">Fun-alto</span><span class="brand-mark-sub">HR</span></span>
-          <span class="brand-subtitle">Your friendly AI HR</span>
-        </div>
-        <nav class="nav">
-          <a class="nav-pill" href="global.html">Global view</a>
-  <a class="nav-pill is-active" href="office.html">Office</a>
+        <a class="brand" href="index.html" aria-label="OC AI Workforce home">
+          <span class="oc-brand oc-brand-full" aria-hidden="true">
+            <img class="oc-brand-light" src="assets/logos/logo-light.webp" alt="" />
+            <img class="oc-brand-dark" src="assets/logos/logo-dark.webp" alt="" />
+          </span>
+          <span class="brand-product">Workforce</span>
+        </a>
+        <nav class="nav" aria-label="Main">
+          <a class="nav-pill" href="index.html">Global view</a>
+  <a class="nav-pill is-active" aria-current="page" href="office.html">Office</a>
   <a class="nav-pill" href="people.html">People</a>
   <a class="nav-pill" href="approvals.html">Approvals</a>
   <a class="nav-pill nav-icon" href="settings.html" aria-label="Settings">
@@ -28,13 +36,16 @@
 </a></nav>
       </header>
 
-      <main class="office-page">
+      <main id="main" tabindex="-1" class="office-page">
         <section class="office-summary">
           <div>
             <p class="eyebrow">Office status</p>
             <div class="office-heading">
               <select id="officeSelect" class="office-select office-select-title" aria-label="Select office">
                 <option value="london">London</option>
+                <option value="bulgaria">Bulgaria</option>
+                <option value="cyprus">Cyprus</option>
+                <option value="dubai">Dubai</option>
                 <option value="new-york">New York</option>
                 <option value="singapore">Singapore</option>
                 <option value="sydney">Sydney</option>
@@ -66,7 +77,7 @@
           <div class="panel">
             <div class="panel-header">
               <h2>Availability board</h2>
-              <p class="muted">Who is on-site right now.</p>
+              <p class="muted">Sample availability across the workforce.</p>
             </div>
             <div class="people-list" id="peopleList"></div>
           </div>

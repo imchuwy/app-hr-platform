@@ -1,19 +1,17 @@
 :root {
-  color-scheme: dark;
-  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
-  --bg: #051c2c;
-  --ink: #eaf6f7;
-  --muted: #9fb8c4;
-  --panel: #0c2a3f;
-  --panel-soft: #0f334d;
-  --accent-1: #87e1d7;
-  --accent-2: #fad255;
-  --accent-3: #cd569b;
-  --accent-4: #5b74b7;
-  --accent: var(--accent-1);
-  --accent-soft: rgba(135, 225, 215, 0.18);
-  --shadow: 0 18px 40px rgba(2, 12, 20, 0.35);
-  --radius: 24px;
+  --bg: var(--canvas);
+  --ink: var(--text);
+  --muted: var(--text-muted);
+  --panel: var(--surface);
+  --panel-soft: var(--surface-raised);
+  --accent-1: var(--chart-3);
+  --accent-2: var(--accent);
+  --accent-3: var(--danger);
+  --accent-4: var(--info);
+  --hr-accent: var(--action);
+  --accent-soft: var(--selected);
+  --shadow: var(--shadow-card);
+  --radius: var(--radius-feature);
 }
 
 * {
@@ -48,31 +46,16 @@ html {
 
 .brand {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  text-decoration: none;
 }
 
-.brand-mark {
-  font-weight: 700;
-  font-size: 20px;
-  display: inline-flex;
-  align-items: baseline;
-  gap: 6px;
-}
-
-.brand-mark-main {
-  font-size: 28px;
-  letter-spacing: -0.01em;
-}
-
-.brand-mark-sub {
-  font-size: 16px;
-  text-transform: uppercase;
-}
-
-.brand-subtitle {
-  font-size: 14px;
-  color: var(--muted);
+.brand-product {
+  border-inline-start: 1px solid var(--border);
+  padding-inline-start: 12px;
+  font: 700 1rem var(--font-display);
 }
 
 .nav {
@@ -95,8 +78,8 @@ html {
 }
 
 .nav-pill.is-active {
-  background: var(--accent);
-  color: #05313a;
+  background: var(--hr-accent);
+  color: var(--on-action);
 }
 
 .nav-pill:hover {
@@ -133,7 +116,9 @@ html {
 }
 
 h1 {
-  font-size: 28px;
+  font-family: var(--font-display);
+  font-size: clamp(25px, 3vw, 34px);
+  letter-spacing: -0.04em;
 }
 
 .legend {
@@ -169,11 +154,12 @@ h1 {
 
 .globe {
   position: relative;
-  width: 360px;
-  height: 360px;
+  width: min(100%, 360px);
+  aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(135, 225, 215, 0.35), rgba(91, 116, 183, 0.55));
+  background: radial-gradient(circle at 30% 30%, color-mix(in srgb, var(--action) 35%, transparent), rgba(91, 116, 183, 0.55));
   overflow: hidden;
+  touch-action: none;
   box-shadow: inset -40px -40px 80px rgba(2, 12, 20, 0.35);
   cursor: grab;
   user-select: none;
@@ -186,15 +172,14 @@ h1 {
 }
 
 .home .globe-stage {
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   justify-items: start;
   text-align: left;
   gap: 24px;
 }
 
 .home .globe {
-  width: clamp(420px, 54vw, 640px);
-  height: clamp(420px, 54vw, 640px);
+  width: min(100%, 640px);
 }
 
 
@@ -206,7 +191,8 @@ h1 {
   width: 100%;
   height: 100%;
   display: block;
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 0;
 }
 
@@ -224,7 +210,7 @@ h1 {
   border-radius: 999px;
   border: 2px solid var(--panel);
   background: var(--accent-1);
-  box-shadow: 0 0 0 6px rgba(135, 225, 215, 0.2);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--action) 20%, transparent);
   transform: translate(-50%, -50%);
   cursor: pointer;
   pointer-events: auto;
@@ -253,12 +239,12 @@ h1 {
 }
 
 .globe-popup {
-  background: #123a57;
+  background: var(--panel-soft);
   border-radius: 20px;
   padding: 20px;
   box-shadow:
     0 18px 40px rgba(2, 12, 20, 0.45),
-    inset 0 0 0 1px rgba(135, 225, 215, 0.35);
+    inset 0 0 0 1px color-mix(in srgb, var(--action) 35%, transparent);
   position: absolute;
   left: 50%;
   bottom: 24px;
@@ -297,7 +283,7 @@ h1 {
   text-decoration: none;
   font-size: 12px;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--hr-accent);
 }
 
 .profile-panel {
@@ -362,8 +348,8 @@ h1 {
 }
 
 .button-primary {
-  background: var(--accent);
-  color: #05313a;
+  background: var(--hr-accent);
+  color: var(--on-action);
 }
 
 .button-secondary {
@@ -398,7 +384,7 @@ h1 {
 .office-select {
   background: var(--panel-soft);
   color: var(--ink);
-  border: 1px solid rgba(135, 225, 215, 0.35);
+  border: 1px solid color-mix(in srgb, var(--action) 35%, transparent);
   padding: 8px 14px;
   border-radius: 16px;
   font: inherit;
@@ -407,15 +393,15 @@ h1 {
 
 .office-select-title {
   background: var(--panel);
-  border-color: rgba(135, 225, 215, 0.45);
+  border-color: color-mix(in srgb, var(--action) 45%, transparent);
   font-size: 24px;
   font-weight: 700;
   padding: 6px 44px 6px 20px;
-  min-width: 260px;
-  box-shadow: inset 0 0 0 1px rgba(135, 225, 215, 0.2);
+  width: min(100%, 260px);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--action) 20%, transparent);
   appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, var(--accent) 50%),
-    linear-gradient(135deg, var(--accent) 50%, transparent 50%);
+  background-image: linear-gradient(45deg, transparent 50%, var(--hr-accent) 50%),
+    linear-gradient(135deg, var(--hr-accent) 50%, transparent 50%);
   background-position: calc(100% - 22px) 50%, calc(100% - 14px) 50%;
   background-size: 6px 6px, 6px 6px;
   background-repeat: no-repeat;
@@ -470,7 +456,7 @@ h1 {
 
 .org-control:hover {
   transform: translateY(-1px);
-  box-shadow: inset 0 0 0 1px rgba(135, 225, 215, 0.25);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--action) 25%, transparent);
 }
 
 .people-list {
@@ -498,18 +484,18 @@ h1 {
 }
 
 .status-onsite {
-  background: var(--accent-4);
-  color: #eaf6f7;
+  background: var(--panel-soft);
+  color: var(--info);
 }
 
 .status-remote {
-  background: var(--accent-1);
-  color: #05313a;
+  background: var(--panel-soft);
+  color: var(--success);
 }
 
 .status-leave {
-  background: var(--accent-3);
-  color: #fff6fa;
+  background: var(--panel-soft);
+  color: var(--danger);
 }
 
 .org-chart {
@@ -562,7 +548,7 @@ h1 {
 
 .org-link {
   fill: none;
-  stroke: rgba(135, 225, 215, 0.2);
+  stroke: color-mix(in srgb, var(--action) 20%, transparent);
   stroke-width: 1;
 }
 
@@ -575,19 +561,19 @@ h1 {
   color: var(--ink);
   border-radius: 16px;
   padding: 14px 16px;
-  box-shadow: inset 0 0 0 1px rgba(135, 225, 215, 0.08);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--action) 8%, transparent);
   transition: 0.2s ease;
   z-index: 1;
 }
 
 .org-person:hover {
   transform: translateY(-1px);
-  box-shadow: inset 0 0 0 1px rgba(135, 225, 215, 0.25);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--action) 25%, transparent);
 }
 
 .org-person.is-selected {
   background: var(--accent-soft);
-  box-shadow: inset 0 0 0 1px rgba(135, 225, 215, 0.6);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--action) 60%, transparent);
 }
 
 .org-select {
@@ -613,7 +599,7 @@ h1 {
 }
 
 .org-toggle:hover {
-  box-shadow: inset 0 0 0 1px rgba(135, 225, 215, 0.25);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--action) 25%, transparent);
 }
 
 .org-name {
@@ -703,7 +689,7 @@ h1 {
 }
 
 .settings-toggle input {
-  accent-color: var(--accent);
+  accent-color: var(--hr-accent);
 }
 
 .modal {
@@ -773,7 +759,7 @@ h1 {
 .field select,
 .field textarea {
   background: var(--panel-soft);
-  border: 1px solid rgba(135, 225, 215, 0.2);
+  border: 1px solid color-mix(in srgb, var(--action) 20%, transparent);
   color: var(--ink);
   padding: 10px 12px;
   border-radius: 12px;
@@ -793,16 +779,17 @@ h1 {
 }
 
 @media (max-width: 1100px) {
-  .content {
-    grid-template-columns: 1fr;
+  .content,
+  .home .content {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .globe-stage {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .office-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .office-stats {
@@ -814,13 +801,13 @@ h1 {
   }
 
   .settings-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
 @media (max-width: 720px) {
   .page {
-    padding: 24px;
+    padding: 16px;
   }
 
   .topbar {
@@ -829,20 +816,19 @@ h1 {
   }
 
   .globe {
-    width: 280px;
-    height: 280px;
+    width: min(100%, 280px);
   }
 
   .office-stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .status-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .field-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -942,7 +928,7 @@ h1 {
 
 .approvals-page {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 24px;
 }
 
@@ -958,18 +944,18 @@ h1 {
 }
 
 .status-review {
-  background: var(--accent-4);
-  color: #eaf6f7;
+  background: var(--panel-soft);
+  color: var(--info);
 }
 
 .status-approved {
-  background: var(--accent-1);
-  color: #05313a;
+  background: var(--panel-soft);
+  color: var(--success);
 }
 
 .status-declined {
-  background: var(--accent-3);
-  color: #fff6fa;
+  background: var(--panel-soft);
+  color: var(--danger);
 }
 
 .status-recorded {
@@ -978,3 +964,38 @@ h1 {
 }
 
 
+
+@media (max-width: 480px) {
+  .globe-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .globe-panel {
+    padding: 18px;
+  }
+}
+
+.office-page,
+.people-page,
+.approvals-page {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.panel,
+.globe-panel,
+.profile-panel {
+  min-width: 0;
+}
+
+@media (max-width: 720px) {
+  .office-summary {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .popup-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

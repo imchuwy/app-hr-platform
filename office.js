@@ -124,6 +124,9 @@ const officeData = {
     remote: 12,
     visitors: 4,
   },
+  bulgaria: { name: "Bulgaria", meta: "Bulgaria office", active: 41 },
+  cyprus: { name: "Cyprus", meta: "Cyprus office", active: 30 },
+  dubai: { name: "Dubai", meta: "Dubai office", active: 47 },
   "new-york": {
     name: "New York",
     meta: "Americas HQ Â· 14th floor, Lexington Plaza",
@@ -161,12 +164,16 @@ const updateOfficeSummary = (officeKey) => {
   const office = officeData[officeKey] ?? officeData.london;
   if (officeMeta) officeMeta.textContent = office.meta;
   if (officeActive) officeActive.textContent = office.active;
-  if (officeLeave) officeLeave.textContent = office.leave;
-  if (officeRemote) officeRemote.textContent = office.remote;
-  if (officeVisitors) officeVisitors.textContent = office.visitors;
+  if (officeLeave) officeLeave.textContent = office.leave ?? "\u2014";
+  if (officeRemote) officeRemote.textContent = office.remote ?? "\u2014";
+  if (officeVisitors) officeVisitors.textContent = office.visitors ?? "\u2014";
 };
 
 if (officeSelect) {
+  const requestedOffice = new URLSearchParams(location.search).get("office");
+  if (requestedOffice && Object.hasOwn(officeData, requestedOffice)) {
+    officeSelect.value = requestedOffice;
+  }
   updateOfficeSummary(officeSelect.value);
   officeSelect.addEventListener("change", (event) => {
     updateOfficeSummary(event.target.value);
@@ -175,8 +182,8 @@ if (officeSelect) {
 
 const orgPeople = [
   {
-    id: "oscar-chu",
-    name: "Oscar Chu",
+    id: "alex-morgan",
+    name: "Alex Morgan",
     title: "Chief Vibe Officer",
     managerId: null,
   },
@@ -184,7 +191,7 @@ const orgPeople = [
     id: "harriet-lewis",
     name: "Harriet Lewis",
     title: "Region Ringmaster",
-    managerId: "oscar-chu",
+    managerId: "alex-morgan",
   },
   {
     id: "samantha-rios",

@@ -75,6 +75,7 @@ const state = {
 
 let textureData = null;
 let frameData = null;
+let needsRender = true;
 
 const updateOffice = (key) => {
   const data = officeData[key];
@@ -148,6 +149,8 @@ if (requestModal) {
       event.preventDefault();
       requestForm.reset();
       closeRequestModal();
+      document.getElementById("requestFeedback").textContent = "Sample request completed.";
+      requestButton?.focus();
     });
   }
 }
@@ -160,12 +163,11 @@ const setCanvasSize = () => {
     return;
   }
   const size = globe.clientWidth || 360;
-  const dpr = window.devicePixelRatio || 1;
+  const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
   canvas.width = Math.round(size * dpr);
   canvas.height = Math.round(size * dpr);
-  canvas.style.width = `${size}px`;
-  canvas.style.height = `${size}px`;
   frameData = null;
+  needsRender = true;
 };
 
 if (globe) {
@@ -290,7 +292,8 @@ const render = () => {
 };
 
 const step = () => {
-  if (!state.dragging) {
+  if (!state.dragging && (state.velocityLon || state.velocityLat)) {
+    needsRender = true;
     state.rotationLon += state.velocityLon;
     state.rotationLat += state.velocityLat;
     state.rotationLat = clamp(state.rotationLat, -1.1, 1.1);
@@ -303,7 +306,10 @@ const step = () => {
       state.velocityLat = 0;
     }
   }
-  render();
+  if (needsRender) {
+    render();
+    needsRender = false;
+  }
   requestAnimationFrame(step);
 };
 
@@ -333,6 +339,7 @@ if (globe) {
     state.rotationLon += dx * speed;
     state.rotationLat += dy * speed;
     state.rotationLat = clamp(state.rotationLat, -1.1, 1.1);
+    needsRender = true;
     state.velocityLon = dx * speed;
     state.velocityLat = dy * speed;
   });
@@ -352,6 +359,7 @@ texture.addEventListener("load", () => {
   textureCanvas.height = texture.height;
   textureCtx.drawImage(texture, 0, 0);
   textureData = textureCtx.getImageData(0, 0, texture.width, texture.height);
+  needsRender = true;
 });
 
 texture.src = "assets/world-map.jpg";

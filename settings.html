@@ -3,22 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fun-alto HR | Settings</title>
+    <title>OC AI Workforce | Settings</title>
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <script src="styles/oc-ai-theme.js"></script>
+    <link rel="stylesheet" href="styles/oc-ai.css" />
     <link rel="stylesheet" href="styles.css" />
+    <script defer src="scripts/oc-ai-controls.js"></script>
   </head>
-  <body>
+  <body class="oc-app">
+    <a class="oc-skip oc-button" href="#main">Skip to content</a>
     <div class="page">
       <header class="topbar">
-        <div class="brand">
-          <span class="brand-mark">Fun-alto HR</span>
-          <span class="brand-subtitle">Settings</span>
-        </div>
-        <nav class="nav">
-          <a class="nav-pill" href="global.html">Global view</a>
+        <a class="brand" href="index.html" aria-label="OC AI Workforce home">
+          <span class="oc-brand oc-brand-full" aria-hidden="true">
+            <img class="oc-brand-light" src="assets/logos/logo-light.webp" alt="" />
+            <img class="oc-brand-dark" src="assets/logos/logo-dark.webp" alt="" />
+          </span>
+          <span class="brand-product">Workforce</span>
+        </a>
+        <nav class="nav" aria-label="Main">
+          <a class="nav-pill" href="index.html">Global view</a>
           <a class="nav-pill" href="office.html">Office</a>
           <a class="nav-pill" href="people.html">People</a>
           <a class="nav-pill" href="approvals.html">Approvals</a>
-          <a class="nav-pill nav-icon is-active" href="settings.html" aria-label="Settings">
+          <a class="nav-pill nav-icon is-active" aria-current="page" href="settings.html" aria-label="Settings">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path
                 fill="currentColor"
@@ -29,19 +37,30 @@
         </nav>
       </header>
 
-      <main class="settings-page">
+      <main id="main" tabindex="-1" class="settings-page">
         <section class="panel">
           <div class="panel-header">
             <h1>Settings</h1>
-            <p class="muted">Personalize your Fun-alto HR experience.</p>
+            <p class="muted">Choose an appearance for this browser. The other controls are part of the demo.</p>
           </div>
           <div class="settings-grid">
+            <div class="settings-block">
+              <h2>Appearance</h2>
+              <label class="oc-theme" for="workforce-theme">
+                Theme
+                <select id="workforce-theme" data-oc-theme>
+                  <option value="system">System</option>
+                  <option value="light">Light</option>
+                  <option value="dark">Dark</option>
+                </select>
+              </label>
+            </div>
             <div class="settings-block">
               <h2>Profile</h2>
               <p class="muted">Manage your personal details and office defaults.</p>
               <div class="field">
                 <span class="label">Display name</span>
-                <input type="text" value="Oscar Chu" />
+                <input type="text" value="Alex Morgan" />
               </div>
               <div class="field">
                 <span class="label">Default office</span>
@@ -99,7 +118,6 @@
                 <input type="checkbox" />
                 <span>Device login alerts</span>
               </label>
-              <button class="button button-primary" type="button">Save changes</button>
             </div>
           </div>
         </section>

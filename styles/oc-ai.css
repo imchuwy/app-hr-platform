@@ -1,0 +1,16 @@
+/* Front-end entry point. Import once, then add product styles. */
+@import url('./oc-ai-tokens.css');
+@import url('./oc-ai-components.css');
+
+@font-face {
+  font-family: 'Inter Variable';
+  src: url('../assets/fonts/inter-latin-wght-normal.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope Variable';
+  src: url('../assets/fonts/manrope-latin-wght-normal.woff2') format('woff2');
+  font-weight: 200 800;
+  font-display: swap;
+}

@@ -3,21 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fun-alto HR | Approvals</title>
+    <title>OC AI Workforce | Approvals</title>
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <script src="styles/oc-ai-theme.js"></script>
+    <link rel="stylesheet" href="styles/oc-ai.css" />
     <link rel="stylesheet" href="styles.css" />
+    <script defer src="scripts/oc-ai-controls.js"></script>
   </head>
-  <body class="approvals">
+  <body class="oc-app approvals">
+    <a class="oc-skip oc-button" href="#main">Skip to content</a>
     <div class="page">
       <header class="topbar">
-        <div class="brand">
-          <span class="brand-mark"><span class="brand-mark-main">Fun-alto</span><span class="brand-mark-sub">HR</span></span>
-          <span class="brand-subtitle">Your friendly AI HR</span>
-        </div>
-        <nav class="nav">
-          <a class="nav-pill" href="global.html">Global view</a>
+        <a class="brand" href="index.html" aria-label="OC AI Workforce home">
+          <span class="oc-brand oc-brand-full" aria-hidden="true">
+            <img class="oc-brand-light" src="assets/logos/logo-light.webp" alt="" />
+            <img class="oc-brand-dark" src="assets/logos/logo-dark.webp" alt="" />
+          </span>
+          <span class="brand-product">Workforce</span>
+        </a>
+        <nav class="nav" aria-label="Main">
+          <a class="nav-pill" href="index.html">Global view</a>
   <a class="nav-pill" href="office.html">Office</a>
   <a class="nav-pill" href="people.html">People</a>
-  <a class="nav-pill is-active" href="approvals.html">Approvals</a>
+  <a class="nav-pill is-active" aria-current="page" href="approvals.html">Approvals</a>
   <a class="nav-pill nav-icon" href="settings.html" aria-label="Settings">
   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path
@@ -28,7 +36,7 @@
 </a></nav>
       </header>
 
-      <main class="content approvals-page">
+      <main id="main" tabindex="-1" class="content approvals-page">
   <section class="panel approvals-panel">
     <div class="panel-header">
       <p class="eyebrow">Personal</p>
