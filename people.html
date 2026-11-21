@@ -14,12 +14,17 @@
     <a class="oc-skip oc-button" href="#main">Skip to content</a>
     <header class="oc-header">
       <div class="frame mast">
-        <a class="oc-brand oc-brand-shore" href="index.html" aria-label="HR Platform home">
-          <picture class="oc-brand-light">
-            <source media="(max-width: 680px)" srcset="assets/icons/shore-wash-icon-light.png" width="512" height="512" />
-            <img src="assets/logos/shore-wash-banner.png" width="692" height="245" alt="" />
-          </picture>
-          <img class="oc-brand-dark" src="assets/icons/shore-wash-icon-dark.png" width="512" height="512" alt="" />
+        <a class="app-brand" href="index.html" aria-label="HR Platform home">
+          <svg width="0" height="0" aria-hidden="true" focusable="false">
+            <filter id="shore-wash-night" color-interpolation-filters="sRGB">
+              <feColorMatrix type="matrix" values="-0.22 0 0 0 1.04
+                                                   -1.03 0 0 0 1.21
+                                                   -1.12 0 0 0 1.20
+                                                    0    0 0 1 0" />
+            </filter>
+          </svg>
+          <img src="assets/logos/shore-wash-banner.png" width="692" height="245" alt="" />
+          <span>HR Platform</span>
         </a>
         <nav aria-label="Main">          <a href="index.html">Overview</a>
           <a href="office.html">Offices</a>
