@@ -1,47 +1,40 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>OC AI Workforce | Approvals</title>
-    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <title>Approvals | HR Platform</title>
+    <link rel="icon" type="image/png" href="assets/icons/shore-wash-icon-light.png" data-dark-href="assets/icons/shore-wash-icon-dark.png" />
     <script src="styles/oc-ai-theme.js"></script>
     <link rel="stylesheet" href="styles/oc-ai.css" />
     <link rel="stylesheet" href="styles.css" />
     <script defer src="scripts/oc-ai-controls.js"></script>
   </head>
-  <body class="oc-app approvals">
+  <body class="oc-app">
     <a class="oc-skip oc-button" href="#main">Skip to content</a>
-    <div class="page">
-      <header class="topbar">
-        <a class="brand" href="index.html" aria-label="OC AI Workforce home">
-          <span class="oc-brand oc-brand-full" aria-hidden="true">
-            <img class="oc-brand-light" src="assets/logos/logo-light.webp" alt="" />
-            <img class="oc-brand-dark" src="assets/logos/logo-dark.webp" alt="" />
-          </span>
-          <span class="brand-product">Workforce</span>
+    <header class="oc-header">
+      <div class="frame mast">
+        <a class="oc-brand oc-brand-shore" href="index.html" aria-label="HR Platform home">
+          <picture class="oc-brand-light">
+            <source media="(max-width: 680px)" srcset="assets/icons/shore-wash-icon-light.png" width="512" height="512" />
+            <img src="assets/logos/shore-wash-banner.png" width="692" height="245" alt="" />
+          </picture>
+          <img class="oc-brand-dark" src="assets/icons/shore-wash-icon-dark.png" width="512" height="512" alt="" />
         </a>
-        <nav class="nav" aria-label="Main">
-          <a class="nav-pill" href="index.html">Global view</a>
-  <a class="nav-pill" href="office.html">Office</a>
-  <a class="nav-pill" href="people.html">People</a>
-  <a class="nav-pill is-active" aria-current="page" href="approvals.html">Approvals</a>
-  <a class="nav-pill nav-icon" href="settings.html" aria-label="Settings">
-  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-    <path
-      fill="currentColor"
-      d="M12 8.75a3.25 3.25 0 1 0 0 6.5a3.25 3.25 0 0 0 0-6.5zm9.25 3.25l-1.96-.32a7.4 7.4 0 0 0-.62-1.5l1.17-1.6a.75.75 0 0 0-.08-.98l-1.66-1.66a.75.75 0 0 0-.98-.08l-1.6 1.17c-.48-.26-.98-.48-1.5-.62l-.32-1.96a.75.75 0 0 0-.74-.62h-2.35a.75.75 0 0 0-.74.62l-.32 1.96c-.52.14-1.02.36-1.5.62l-1.6-1.17a.75.75 0 0 0-.98.08L4.16 7.22a.75.75 0 0 0-.08.98l1.17 1.6c-.26.48-.48.98-.62 1.5l-1.96.32a.75.75 0 0 0-.62.74v2.35c0 .37.27.69.62.74l1.96.32c.14.52.36 1.02.62 1.5l-1.17 1.6a.75.75 0 0 0 .08.98l1.66 1.66c.26.26.66.3.98.08l1.6-1.17c.48.26.98.48 1.5.62l.32 1.96c.05.35.37.62.74.62h2.35c.37 0 .69-.27.74-.62l.32-1.96c.52-.14 1.02-.36 1.5-.62l1.6 1.17c.32.22.72.18.98-.08l1.66-1.66a.75.75 0 0 0 .08-.98l-1.17-1.6c.26-.48.48-.98.62-1.5l1.96-.32a.75.75 0 0 0 .62-.74v-2.35a.75.75 0 0 0-.62-.74z"
-    />
-  </svg>
-</a></nav>
-      </header>
-
-      <main id="main" tabindex="-1" class="content approvals-page">
-  <section class="panel approvals-panel">
+        <nav aria-label="Main">          <a href="index.html">Overview</a>
+          <a href="office.html">Offices</a>
+          <a href="people.html">People</a>
+          <a href="approvals.html" aria-current="page">Approvals</a>
+          <a href="settings.html">Settings</a>
+        </nav>
+      </div>
+    </header>
+    <main class="frame" id="main" tabindex="-1">
+      <div class="page-heading"><p class="eyebrow">HR Platform</p><h1>Approvals</h1></div>
+<section class="panel approvals-panel">
     <div class="panel-header">
-      <p class="eyebrow">Personal</p>
-      <h1>Personal approvals status</h1>
-      <p class="muted">Oscar's requests - past and present.</p>
+      <h2>My requests</h2>
+      <p class="muted">Sample request history for Alex Morgan.</p>
     </div>
     <div class="table-wrap">
       <table class="people-table approvals-table" aria-label="My requests">
@@ -59,9 +52,8 @@
 
   <section class="panel approvals-panel">
     <div class="panel-header">
-      <p class="eyebrow">Team</p>
-      <h2>Team pending approvals</h2>
-      <p class="muted">Requests from your juniors that need approval.</p>
+      <h2>Team requests</h2>
+      <p class="muted">Requests awaiting review.</p>
     </div>
     <div class="table-wrap">
       <table class="people-table approvals-table" aria-label="Team requests">
@@ -77,16 +69,8 @@
       </table>
     </div>
   </section>
-</main>
-    </div>
+    </main>
 
     <script src="approvals.js"></script>
   </body>
 </html>
-
-
-
-
-
-
-

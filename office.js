@@ -1,97 +1,97 @@
 const people = [
   {
     name: "Avery Patel",
-    title: "Roadmap Storyteller",
+    title: "Product Manager",
     status: "On-site",
     pill: "status-onsite",
   },
   {
     name: "Noah Ibrahim",
-    title: "Blueprint Wizard",
+    title: "Architect",
     status: "Remote",
     pill: "status-remote",
   },
   {
     name: "Lina Gomez",
-    title: "People Ops Spark Spark",
+    title: "People Operations Specialist",
     status: "On-site",
     pill: "status-onsite",
   },
   {
     name: "Kai Müller",
-    title: "Security Sentinel",
+    title: "Security Analyst",
     status: "On leave",
     pill: "status-leave",
   },
   {
     name: "Zoe Carter",
-    title: "Client Happiness Hero",
+    title: "Customer Support Manager",
     status: "Remote",
     pill: "status-remote",
   },
   {
     name: "Ethan Brooks",
-    title: "Code Wrangler",
+    title: "Senior Engineer",
     status: "On-site",
     pill: "status-onsite",
   },
   {
     name: "Mia Chen",
-    title: "Chief Vibe Architect",
+    title: "Design Lead",
     status: "On-site",
     pill: "status-onsite",
   },
   {
     name: "Leo Grant",
-    title: "Director of Joy Ops",
+    title: "Operations Director",
     status: "Remote",
     pill: "status-remote",
   },
   {
     name: "Priya Shah",
-    title: "Head of Snacks Strategy",
+    title: "Procurement Lead",
     status: "On-site",
     pill: "status-onsite",
   },
   {
     name: "Jordan Blake",
-    title: "Meeting Wrangler",
+    title: "Office Coordinator",
     status: "Remote",
     pill: "status-remote",
   },
   {
     name: "Nia Brooks",
-    title: "Culture Catalyst",
+    title: "People Partner",
     status: "On leave",
     pill: "status-leave",
   },
   {
     name: "Caleb Ortiz",
-    title: "Workflow Wizard",
+    title: "Operations Analyst",
     status: "On-site",
     pill: "status-onsite",
   },
   {
     name: "Riley Park",
-    title: "Happiness Engineer",
+    title: "Support Engineer",
     status: "Remote",
     pill: "status-remote",
   },
   {
     name: "Samir Khan",
-    title: "Chief Playlist Curator",
+    title: "Communications Lead",
     status: "On-site",
     pill: "status-onsite",
   },
   {
     name: "Ella Ruiz",
-    title: "Office Zen Master",
+    title: "Office Manager",
     status: "Remote",
     pill: "status-remote",
   },
   {
     name: "Theo Mason",
-    title: "Director of Good Times",
+    title: "Events Director",
     status: "On-site",
     pill: "status-onsite",
   },
@@ -118,7 +118,7 @@ if (list) {
 const officeData = {
   london: {
     name: "London",
-    meta: "Regional HQ Â· 2nd floor, Miro Tower",
+    meta: "London office",
     active: 110,
     leave: 8,
     remote: 12,
@@ -129,7 +129,7 @@ const officeData = {
   dubai: { name: "Dubai", meta: "Dubai office", active: 47 },
   "new-york": {
     name: "New York",
-    meta: "Americas HQ Â· 14th floor, Lexington Plaza",
+    meta: "New York office",
     active: 96,
     leave: 6,
     remote: 18,
@@ -137,7 +137,7 @@ const officeData = {
   },
   singapore: {
     name: "Singapore",
-    meta: "APAC Hub Â· Level 21, Marina Gateway",
+    meta: "Singapore office",
     active: 74,
     leave: 5,
     remote: 22,
@@ -145,7 +145,7 @@ const officeData = {
   },
   sydney: {
     name: "Sydney",
-    meta: "Oceania Studio Â· 9th floor, Harbour House",
+    meta: "Sydney office",
     active: 58,
     leave: 4,
     remote: 16,
@@ -184,55 +184,55 @@ const orgPeople = [
   {
     id: "alex-morgan",
     name: "Alex Morgan",
-    title: "Chief Vibe Officer",
+    title: "People Director",
     managerId: null,
   },
   {
     id: "harriet-lewis",
     name: "Harriet Lewis",
-    title: "Region Ringmaster",
+    title: "Regional Director",
     managerId: "alex-morgan",
   },
   {
     id: "samantha-rios",
     name: "Samantha Rios",
-    title: "Build Captain",
+    title: "Engineering Manager",
     managerId: "harriet-lewis",
   },
   {
     id: "marc-dubois",
     name: "Marc Dubois",
-    title: "Numbers Navigator",
+    title: "Finance Manager",
     managerId: "harriet-lewis",
   },
   {
     id: "alana-wyatt",
     name: "Alana Wyatt",
-    title: "People Ops Spark Spark Lead",
+    title: "People Operations Lead",
     managerId: "harriet-lewis",
   },
   {
     id: "jules-schneider",
     name: "Jules Schneider",
-    title: "Client Happiness Hero Lead",
+    title: "Customer Support Lead",
     managerId: "harriet-lewis",
   },
   {
     id: "ethan-brooks",
     name: "Ethan Brooks",
-    title: "Senior Code Pilot",
+    title: "Senior Engineer",
     managerId: "samantha-rios",
   },
   {
     id: "zoe-carter",
     name: "Zoe Carter",
-    title: "Client Happiness Hero Manager",
+    title: "Customer Support Manager",
     managerId: "jules-schneider",
   },
   {
     id: "lina-gomez",
     name: "Lina Gomez",
-    title: "People Ops Spark Spark Specialist",
+    title: "People Operations Specialist",
     managerId: "alana-wyatt",
   },
 ];
@@ -458,5 +458,3 @@ function drawConnectors(passedVisibleIds) {
     orgLinks.appendChild(path);
   });
 }
-
-

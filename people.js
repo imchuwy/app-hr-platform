@@ -1,14 +1,14 @@
 const people = [
-  { name: "Alex Morgan", title: "Chief Vibe Officer", location: "London" },
-  { name: "Ava Patel", title: "Schedule Wrangler", location: "London" },
-  { name: "Mateo Alvarez", title: "Spreadsheet Sorcerer", location: "Austin" },
-  { name: "Yuki Tanaka", title: "Talent Magnet", location: "Tokyo" },
-  { name: "Lena Fischer", title: "Compensation Alchemist", location: "Berlin" },
-  { name: "Noah Brooks", title: "Policy Peacekeeper", location: "Toronto" },
-  { name: "Priya Singh", title: "Benefits Bard", location: "Singapore" },
-  { name: "Amira Hassan", title: "Learning Launchpad Lead", location: "Dubai" },
-  { name: "Ethan Ross", title: "Headcount Pathfinder", location: "Chicago" },
-  { name: "Sofia Mendes", title: "Experience Curator", location: "Lisbon" },
+  { name: "Alex Morgan", title: "People Director", location: "London" },
+  { name: "Ava Patel", title: "Operations Coordinator", location: "London" },
+  { name: "Mateo Alvarez", title: "Finance Analyst", location: "Austin" },
+  { name: "Yuki Tanaka", title: "Recruiter", location: "Tokyo" },
+  { name: "Lena Fischer", title: "Compensation Analyst", location: "Berlin" },
+  { name: "Noah Brooks", title: "Policy Advisor", location: "Toronto" },
+  { name: "Priya Singh", title: "Benefits Specialist", location: "Singapore" },
+  { name: "Amira Hassan", title: "Learning Manager", location: "Dubai" },
+  { name: "Ethan Ross", title: "Workforce Analyst", location: "Chicago" },
+  { name: "Sofia Mendes", title: "Employee Experience Lead", location: "Lisbon" },
 ];
 
 const tableBody = document.getElementById("peopleTableBody");
@@ -82,5 +82,3 @@ sortButtons.forEach((button) => {
 
 updateSortUI();
 renderTable();
-
-

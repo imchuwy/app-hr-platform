@@ -133,6 +133,15 @@
   width: 100%;
   height: 100%;
 }
+/* Shore Wash uses transparent artwork and preserves the active image's aspect ratio. */
+.oc-brand-shore picture {
+  grid-area: 1 / 1;
+}
+.oc-brand-shore img {
+  width: auto;
+  height: 40px;
+  vertical-align: middle;
+}
 .oc-field {
   display: grid;
   gap: 6px;
