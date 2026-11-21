@@ -46,14 +46,13 @@ const officeData = {
 const globe = document.getElementById("globe");
 const canvas = document.getElementById("globeCanvas");
 const markers = document.querySelectorAll(".office-marker");
-const popup = document.getElementById("globePopup");
+const officePicker = document.getElementById("globeOffice");
 const officeName = document.getElementById("officeName");
 const officeTime = document.getElementById("officeTime");
 const officePersonnel = document.getElementById("officePersonnel");
 const officeAvailability = document.getElementById("officeAvailability");
 const officeHoliday = document.getElementById("officeHoliday");
 const officeLink = document.getElementById("officeLink");
-const requestTab = document.getElementById("requestTab");
 const requestButton = document.getElementById("requestButton");
 const requestModal = document.getElementById("requestModal");
 const requestForm = document.getElementById("requestForm");
@@ -75,12 +74,19 @@ const state = {
 
 let textureData = null;
 let frameData = null;
+let needsRender = true;
 
 const updateOffice = (key) => {
   const data = officeData[key];
   if (!data) {
     return;
   }
+  officePicker.value = key;
+  markers.forEach(marker => {
+    const selected = marker.dataset.office === key;
+    marker.classList.toggle("is-selected", selected);
+    marker.setAttribute("aria-pressed", String(selected));
+  });
   officeName.textContent = data.name;
   officeTime.textContent = data.time;
   officePersonnel.textContent = data.personnel;
@@ -95,62 +101,33 @@ markers.forEach((marker) => {
     event.stopPropagation();
   });
   marker.addEventListener("click", () => {
-    markers.forEach((item) => item.classList.remove("is-selected"));
-    marker.classList.add("is-selected");
     updateOffice(marker.dataset.office);
   });
 });
 
 updateOffice("london");
-const defaultMarker = document.querySelector('.office-marker[data-office="london"]');
-if (defaultMarker) {
-  defaultMarker.classList.add("is-selected");
-}
+officePicker.addEventListener("change", () => {
+  const marker = [...markers].find(item => item.dataset.office === officePicker.value);
+  state.rotationLon = -Number(marker.dataset.lon) * Math.PI / 180;
+  state.rotationLat = Number(marker.dataset.lat) * Math.PI / 180;
+  state.velocityLon = state.velocityLat = 0;
+  needsRender = true;
+  updateOffice(officePicker.value);
+});
 
-const openRequestModal = () => {
-  if (!requestModal) {
-    return;
-  }
-  requestModal.classList.remove("is-hidden");
-  const firstField = requestForm?.querySelector("select, input, textarea");
-  if (firstField) {
-    firstField.focus();
-  }
-};
-
-const closeRequestModal = () => {
-  if (!requestModal) {
-    return;
-  }
-  requestModal.classList.add("is-hidden");
-};
-
-if (requestModal) {
-  if (requestTab) {
-    requestTab.addEventListener("click", openRequestModal);
-  }
-  if (requestButton) {
-    requestButton.addEventListener("click", openRequestModal);
-  }
-  requestModal.addEventListener("click", (event) => {
-    const target = event.target;
-    if (target instanceof HTMLElement && target.hasAttribute("data-modal-close")) {
-      closeRequestModal();
-    }
-  });
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !requestModal.classList.contains("is-hidden")) {
-      closeRequestModal();
-    }
-  });
-  if (requestForm) {
-    requestForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      requestForm.reset();
-      closeRequestModal();
-    });
-  }
-}
+requestButton.addEventListener("click", () => requestModal.showModal());
+requestModal.querySelectorAll("[data-modal-close]").forEach(button => {
+  button.addEventListener("click", () => requestModal.close());
+});
+const { startDate, endDate } = requestForm.elements;
+startDate.addEventListener("input", () => { endDate.min = startDate.value; });
+requestForm.addEventListener("submit", event => {
+  event.preventDefault();
+  requestModal.close();
+  requestForm.reset();
+  endDate.removeAttribute("min");
+  document.getElementById("requestFeedback").textContent = "Sample request completed.";
+});
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 const toRad = (deg) => (deg * Math.PI) / 180;
@@ -160,12 +137,11 @@ const setCanvasSize = () => {
     return;
   }
   const size = globe.clientWidth || 360;
-  const dpr = window.devicePixelRatio || 1;
+  const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
   canvas.width = Math.round(size * dpr);
   canvas.height = Math.round(size * dpr);
-  canvas.style.width = `${size}px`;
-  canvas.style.height = `${size}px`;
   frameData = null;
+  needsRender = true;
 };
 
 if (globe) {
@@ -290,7 +266,8 @@ const render = () => {
 };
 
 const step = () => {
-  if (!state.dragging) {
+  if (!state.dragging && (state.velocityLon || state.velocityLat)) {
+    needsRender = true;
     state.rotationLon += state.velocityLon;
     state.rotationLat += state.velocityLat;
     state.rotationLat = clamp(state.rotationLat, -1.1, 1.1);
@@ -303,7 +280,10 @@ const step = () => {
       state.velocityLat = 0;
     }
   }
-  render();
+  if (needsRender) {
+    render();
+    needsRender = false;
+  }
   requestAnimationFrame(step);
 };
 
@@ -333,12 +313,16 @@ if (globe) {
     state.rotationLon += dx * speed;
     state.rotationLat += dy * speed;
     state.rotationLat = clamp(state.rotationLat, -1.1, 1.1);
+    needsRender = true;
     state.velocityLon = dx * speed;
     state.velocityLat = dy * speed;
   });
 
   const endDrag = () => {
     state.dragging = false;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      state.velocityLon = state.velocityLat = 0;
+    }
     globe.classList.remove("is-dragging");
   };
 
@@ -352,10 +336,9 @@ texture.addEventListener("load", () => {
   textureCanvas.height = texture.height;
   textureCtx.drawImage(texture, 0, 0);
   textureData = textureCtx.getImageData(0, 0, texture.width, texture.height);
+  needsRender = true;
 });
 
 texture.src = "assets/world-map.jpg";
 
 step();
-
-

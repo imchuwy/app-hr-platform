@@ -1,18 +1,22 @@
-Landing page
-<img width="2286" height="1281" alt="image" src="https://github.com/user-attachments/assets/fa47c8bf-d25e-4d7e-a2ea-195cb03277e1" />
+# HR Platform
 
+Explore a sample workforce across an interactive globe. Drag to rotate the globe, or choose an office from the list to open its staffing summary. The app also includes a sortable people directory, an expandable org chart and a sample leave request form.
 
-Request button
-<img width="2287" height="1283" alt="image" src="https://github.com/user-attachments/assets/3c4c2855-09df-4406-8b99-6b415a662c61" />
+![Global offices in the light theme](docs/screenshots/global-offices.jpg)
 
-Office and orgchart
-<img width="2265" height="1276" alt="image" src="https://github.com/user-attachments/assets/01d88b2b-7750-4782-90e9-acde2c978817" />
+## Appearance
 
-People
-<img width="2274" height="1269" alt="image" src="https://github.com/user-attachments/assets/98951a79-3a1e-47a6-823d-f703b7f97166" />
+The Shore Wash portfolio identity uses the horizontal banner on light desktop headers, Open Water on compact light headers, and Nightfall A on dark headers. Choose System, Light or Dark in Settings.
 
-Approvals
-<img width="2266" height="1277" alt="image" src="https://github.com/user-attachments/assets/35ba85c4-6d09-41d2-be72-48941f6a85ca" />
+<details>
+<summary>Mobile view in the dark theme</summary>
 
-Settings
-<img width="2284" height="1277" alt="image" src="https://github.com/user-attachments/assets/30e66b3c-f3c3-4c03-ba9f-8c5fcc2a2aa2" />
+<img src="docs/screenshots/global-offices-mobile.jpg" width="320" alt="Global offices and the office selector on a narrow screen" />
+
+</details>
+
+## Run locally
+
+Serve the repository root with a static web server, for example **python -m http.server 8000**, and open <http://localhost:8000>. The app uses fictional personnel and sample office snapshots. Completing the sample form displays a local confirmation.
+
+The [design kit](https://github.com/imchuwy/ux-template) supplies the Shore Wash artwork and fonts. Font licenses are in [assets/fonts/licenses](assets/fonts/licenses). Globe coastlines use [Natural Earth data](https://www.naturalearthdata.com/about/terms-of-use/).

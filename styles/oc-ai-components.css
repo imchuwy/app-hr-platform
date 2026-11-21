@@ -1,0 +1,342 @@
+/* Load after tokens. Layout and component classes are opt-in. */
+.oc-app {
+  margin: 0;
+  line-height: 1.55;
+}
+.oc-app *,
+.oc-app *::before,
+.oc-app *::after {
+  box-sizing: border-box;
+}
+.oc-app [hidden] {
+  display: none !important;
+}
+.oc-frame {
+  width: min(100% - 2 * clamp(16px, 4vw, 56px), 1120px);
+  margin-inline: auto;
+}
+.oc-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.oc-header-inner,
+.oc-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.oc-header-inner {
+  min-height: 72px;
+  justify-content: space-between;
+  padding-block: 10px;
+}
+.oc-stack {
+  display: grid;
+  gap: 16px;
+}
+.oc-title,
+.oc-heading {
+  font-family: var(--font-display);
+  color: var(--text);
+  line-height: 1.15;
+  margin: 0;
+}
+.oc-title {
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: -0.045em;
+}
+.oc-heading {
+  font-size: 20px;
+  letter-spacing: -0.025em;
+}
+.oc-muted,
+.oc-helper {
+  color: var(--text-muted);
+}
+.oc-helper {
+  font-size: 14px;
+}
+.oc-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.oc-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.oc-skip {
+  position: absolute;
+  z-index: 5;
+  left: 12px;
+  top: 8px;
+  transform: translateY(-160%);
+}
+.oc-skip:focus {
+  transform: none;
+}
+.oc-brand {
+  display: inline-grid;
+  place-items: center;
+  vertical-align: middle;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.oc-brand img {
+  grid-area: 1 / 1;
+  object-fit: contain;
+}
+.oc-brand-full {
+  width: 110px;
+  height: 55px;
+  border-radius: var(--radius-control);
+}
+.oc-brand-full img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.oc-brand-dark {
+  display: none;
+}
+/* Inherit the nearest theme, including a specimen inside an opposite-theme page. */
+:root,
+[data-theme='light'] {
+  --brand-light-display: block;
+  --brand-dark-display: none;
+  --brand-backing: transparent;
+  --icon-backing: transparent;
+}
+[data-theme='dark'] {
+  --brand-light-display: none;
+  --brand-dark-display: block;
+  --brand-backing: #282529;
+  --icon-backing: #fffaf5;
+}
+.oc-brand-full {
+  background: var(--brand-backing);
+}
+.oc-brand-light {
+  display: var(--brand-light-display);
+}
+.oc-brand-dark {
+  display: var(--brand-dark-display);
+}
+.oc-brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--icon-backing);
+}
+.oc-brand-mark img {
+  width: 100%;
+  height: 100%;
+}
+/* Shore Wash uses transparent artwork and preserves the active image's aspect ratio. */
+.oc-brand-shore picture {
+  grid-area: 1 / 1;
+}
+.oc-brand-shore img {
+  width: auto;
+  height: 40px;
+  vertical-align: middle;
+}
+.oc-field {
+  display: grid;
+  gap: 6px;
+}
+.oc-field label,
+.oc-label {
+  font-size: 14px;
+  font-weight: 600;
+}
+.oc-input {
+  width: 100%;
+  min-width: 0;
+}
+.oc-field-error {
+  color: var(--danger);
+  font-size: 14px;
+  margin: 0;
+}
+.oc-field-error:empty {
+  display: none;
+}
+.oc-field :where(p) {
+  margin: 0;
+}
+.oc-choice-group {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.oc-choice-group legend {
+  padding: 0;
+  margin-bottom: 6px;
+}
+.oc-choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-control);
+  cursor: pointer;
+}
+.oc-choice input {
+  accent-color: var(--text);
+  margin: 0;
+}
+.oc-choice:has(:checked) {
+  background: var(--selected);
+  color: var(--on-selected);
+  border-color: var(--text);
+}
+.oc-choice:has(:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+.oc-details {
+  border-block-start: 1px solid var(--border);
+}
+.oc-details summary {
+  cursor: pointer;
+  padding-block: 12px;
+  font-weight: 600;
+}
+.oc-details p {
+  margin: 0 0 14px;
+  color: var(--text-muted);
+}
+.oc-info {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  color: var(--text-muted);
+  border: 0;
+  border-radius: var(--radius-control);
+  cursor: pointer;
+  font:
+    600 15px/1 Georgia,
+    serif;
+}
+.oc-info::before {
+  content: 'i';
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+}
+.oc-info:hover {
+  background: var(--surface-raised);
+}
+.oc-popover,
+.oc-drawer {
+  color: var(--text);
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  padding: 20px;
+  box-shadow: var(--shadow-card);
+  font-family: var(--font-ui);
+}
+.oc-popover {
+  border-radius: var(--radius-card);
+  width: min(21rem, calc(100% - 24px));
+  max-height: calc(100dvh - 24px);
+  overflow: auto;
+}
+.oc-popover p {
+  margin: 0;
+}
+.oc-drawer {
+  margin: 0 0 0 auto;
+  inset: 0 0 0 auto;
+  width: min(27rem, 100%);
+  height: 100dvh;
+  max-height: 100dvh;
+  max-width: 100%;
+  padding: 24px;
+  border-width: 0 0 0 1px;
+}
+.oc-drawer::backdrop {
+  background: rgb(0 0 0 / 0.45);
+}
+.oc-drawer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.oc-theme {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.oc-theme select {
+  font: inherit;
+  color: var(--text);
+  padding: 7px 10px;
+  min-height: 40px;
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .oc-popover:popover-open {
+    animation: oc-pop-in var(--duration-fast) var(--ease-out);
+  }
+  .oc-drawer[open] {
+    animation: oc-drawer-in var(--duration-panel) var(--ease-out);
+  }
+}
+@keyframes oc-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+@keyframes oc-drawer-in {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .oc-button:active:not(:disabled) {
+    transform: none;
+  }
+}
+
+.oc-rail-brand {
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+}
+.oc-nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: var(--radius-control);
+  color: var(--text);
+  text-decoration: none;
+}
+.oc-nav-link:hover {
+  background: var(--surface-raised);
+}
+.oc-nav-link[aria-current='page'] {
+  color: var(--on-selected);
+  font-weight: 600;
+  background: var(--selected);
+  box-shadow: inset 0 -2px currentColor;
+}

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Global offices | HR Platform</title>
+    <link rel="icon" type="image/png" href="assets/icons/shore-wash-icon-light.png" data-dark-href="assets/icons/shore-wash-icon-dark.png" />
+    <script src="styles/oc-ai-theme.js"></script>
+    <link rel="stylesheet" href="styles/oc-ai.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="scripts/oc-ai-controls.js"></script>
+  </head>
+  <body class="oc-app">
+    <a class="oc-skip oc-button" href="#main">Skip to content</a>
+    <header class="oc-header">
+      <div class="frame mast">
+        <a class="oc-brand oc-brand-shore" href="index.html" aria-label="HR Platform home">
+          <picture class="oc-brand-light">
+            <source media="(max-width: 680px)" srcset="assets/icons/shore-wash-icon-light.png" width="512" height="512" />
+            <img src="assets/logos/shore-wash-banner.png" width="692" height="245" alt="" />
+          </picture>
+          <img class="oc-brand-dark" src="assets/icons/shore-wash-icon-dark.png" width="512" height="512" alt="" />
+        </a>
+        <nav aria-label="Main">          <a href="index.html" aria-current="page">Overview</a>
+          <a href="office.html">Offices</a>
+          <a href="people.html">People</a>
+          <a href="approvals.html">Approvals</a>
+          <a href="settings.html">Settings</a>
+        </nav>
+      </div>
+    </header>
+    <main class="frame" id="main" tabindex="-1">
+      <div class="page-heading"><p class="eyebrow">HR Platform</p><h1>Global offices</h1></div>
+      <section class="atlas" aria-label="Global offices">
+        <div class="map-stage"><div class="globe" id="globe" aria-label="Interactive globe">
+              <canvas id="globeCanvas" width="360" height="360" aria-hidden="true"></canvas>
+              <div class="globe-overlay" id="globeOverlay">
+                <button class="office-marker" aria-label="London" data-office="london" data-lat="51.5074" data-lon="-0.1278">
+                  <span></span>
+                </button>
+                <button class="office-marker" aria-label="Bulgaria" data-office="bulgaria" data-lat="42.6977" data-lon="23.3219">
+                  <span></span>
+                </button>
+                <button class="office-marker" aria-label="Cyprus" data-office="cyprus" data-lat="35.1856" data-lon="33.3823">
+                  <span></span>
+                </button>
+                <button class="office-marker" aria-label="Dubai" data-office="dubai" data-lat="25.2048" data-lon="55.2708">
+                  <span></span>
+                </button>
+                <button class="office-marker" aria-label="Singapore" data-office="singapore" data-lat="1.3521" data-lon="103.8198">
+                  <span></span>
+                </button>
+                <button class="office-marker" aria-label="Sydney" data-office="sydney" data-lat="-33.8688" data-lon="151.2093">
+                  <span></span>
+                </button>
+              </div>
+            </div>
+          <p class="map-caption">Drag to rotate · Select an office</p>
+        </div>
+        <div class="office-snapshot">
+          <label class="eyebrow" for="globeOffice">Office</label>
+          <select id="globeOffice">
+              <option value="london">London</option>
+              <option value="bulgaria">Bulgaria</option>
+              <option value="cyprus">Cyprus</option>
+              <option value="dubai">Dubai</option>
+              <option value="singapore">Singapore</option>
+              <option value="sydney">Sydney</option>
+          </select>
+          <h2 id="officeName">London</h2>
+          <div class="popup-grid">
+                <div>
+                  <p class="label">Local time</p>
+                  <p class="value" id="officeTime">Tue 14:32</p>
+                </div>
+                <div>
+                  <p class="label">Personnel</p>
+                  <p class="value" id="officePersonnel">120</p>
+                </div>
+                <div>
+                  <p class="label">Availability</p>
+                  <p class="value" id="officeAvailability">110 active</p>
+                </div>
+                <div>
+                  <p class="label">Next holiday</p>
+                  <p class="value" id="officeHoliday">Bank Holiday - 5 May</p>
+                </div>
+              </div>
+
+          <a class="oc-button" id="officeLink" href="office.html?office=london">View London office</a>
+        </div>
+      </section>
+      <section class="profile-strip" aria-labelledby="profileName">
+        <div><p class="eyebrow">Sample profile</p><h2 id="profileName">Alex Morgan</h2>
+          <p class="muted">People Director · London</p></div>
+        <dl><div><dt>Annual leave taken</dt><dd>18 days</dd></div>
+          <div><dt>Work from home</dt><dd>5 days</dd></div>
+          <div><dt>Sick leave taken</dt><dd>10 days</dd></div></dl>
+        <div><button class="oc-button oc-button-secondary" id="requestButton">Make a request</button>
+          <p id="requestFeedback" role="status"></p></div>
+      </section>
+    </main>
+    <dialog id="requestModal" aria-labelledby="requestTitle">
+      <div class="modal-header"><h2 id="requestTitle">Sample leave request</h2>
+        <button class="org-control" type="button" data-modal-close>Close</button>
+      </div>
+        <form class="modal-form" id="requestForm">
+          <label class="field">
+            <span class="label">Request type</span>
+            <select name="requestType" required>
+              <option value="holiday">Holiday</option>
+              <option value="wfh">WFH</option>
+              <option value="sick-leave">Sick leave</option>
+            </select>
+          </label>
+          <div class="field-row">
+            <label class="field">
+              <span class="label">Start date</span>
+              <input type="date" name="startDate" required />
+            </label>
+            <label class="field">
+              <span class="label">End date</span>
+              <input type="date" name="endDate" required />
+            </label>
+          </div>
+          <label class="field">
+            <span class="label">Comments</span>
+            <textarea name="comments" rows="4" placeholder="Add context or notes"></textarea>
+          </label>
+          <div class="modal-actions">
+            <button class="button button-secondary" type="button" data-modal-close>Cancel</button>
+            <button class="button button-primary" type="submit">Complete sample request</button>
+          </div>
+        </form>
+    </dialog>
+    <script src="app.js"></script>
+  </body>
+</html>
